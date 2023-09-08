@@ -4,16 +4,27 @@ package ar.edu.undef.fie;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        var odd = 0;
+        var even = 0;
+        if(args.length == 0){
+            System.out.println("Result = 0" );
+        }else{
+            for (var arg : args) {
+                if(isOdd(Integer.parseInt(arg))){
+                    odd++;
+                }else{
+                    even++;
+                }
+            }
+            System.out.println("Odd = " + odd);
+            System.out.println("even = " + even);
+            
         }
+
+
+    }
+
+    private static boolean isOdd(int number){
+        return number % 2 == 0;
     }
 }
