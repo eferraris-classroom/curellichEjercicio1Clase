@@ -4,27 +4,32 @@ package ar.edu.undef.fie;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        var odd = 0;
-        var even = 0;
-        if(args.length == 0){
-            System.out.println("Result = 0" );
-        }else{
-            for (var arg : args) {
-                if(isOdd(Integer.parseInt(arg))){
-                    odd++;
-                }else{
-                    even++;
-                }
+//        int[] numbers = new int[4];
+        int[] numbers = {1, 2, 3, 4};
+        int[] maxAndMin = maxAndMin(numbers);
+        System.out.println("max number = " + maxAndMin[0]);
+        System.out.println("min number = " + maxAndMin[1]);
+    }
+
+    private static int[] maxAndMin(int[] numbers){
+        int [] result = new int[2];
+
+        int max = numbers[0];
+        int min = numbers[0];
+        for(var number : numbers){
+            if(number > max){
+                max = number;
             }
-            System.out.println("Odd = " + odd);
-            System.out.println("even = " + even);
-            
+            if(number < min){
+                min = number;
+            }
         }
 
+        result[0]=max;
+        result[1]=min;
 
+        return result;
     }
 
-    private static boolean isOdd(int number){
-        return number % 2 == 0;
-    }
+
 }
